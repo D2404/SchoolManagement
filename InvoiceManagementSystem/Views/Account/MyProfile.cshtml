@@ -1,0 +1,230 @@
+﻿@model InvoiceManagementSystem.Models.AccountModel
+@{
+    ViewBag.Title = "MyProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+<script src="~/Content/files/assets/pages/form-masking/inputmask.js"></script>
+<script src="~/Content/files/assets/pages/form-masking/jquery.inputmask.js"></script>
+<script src="~/Content/files/assets/pages/form-masking/autoNumeric.js"></script>
+<script src="~/Content/files/assets/pages/form-masking/form-mask.js"></script>
+
+
+<link rel="stylesheet" href="~/Content/files/bower_components/select2/css/select2.min.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/files/bower_components/bootstrap-multiselect/css/bootstrap-multiselect.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/files/bower_components/multiselect/css/multi-select.css" />
+<script src="~/Content/files/bower_components/select2/js/select2.full.min.js"></script>
+<script src="~/Content/files/bower_components/bootstrap-multiselect/js/bootstrap-multiselect.js">
+</script>
+<script src="~/Content/files/bower_components/multiselect/js/jquery.multi-select.js"></script>
+<script src="~/Content/files/assets/js/jquery.quicksearch.js"></script>
+<script src="~/Content/files/assets/pages/advance-elements/select2-custom.js"></script>
+<div class="container-fluid py-4">
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header pb-0">
+                    <div class="d-flex align-items-center">
+                        <h3 class="mb-120" style="margin-left: 425px">User Setting</h3>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="wt-tabs">
+                                <ul class="nav nav-tabs md-tabs tab-timeline" role="tablist" id="mytab">
+                                    <li class="nav-item" style="border-right: 3px solid #ccc;width:324px">
+                                        <a class="nav-link" data-toggle="tab" href="#personal" role="tab"><b style="padding-left: 83px; color: steelblue">Personal Info</b></a>
+                                        <div class="slide"></div>
+                                    </li>
+                                    &nbsp;
+                                    <li class="nav-item" style="border-right: 3px solid #ccc; width: 325px ">
+                                        <a class="nav-link" data-toggle="tab" href="#binfo" role="tab"><b style="padding-left: 83px; color: steelblue">Change Setting</b></a>
+                                        <div class="slide"></div>
+                                    </li>
+                                    <li class="nav-item" style="border-right: 3px solid #ccc; width: 325px ">
+                                        <a class="nav-link" data-toggle="tab" href="#contacts" role="tab"><b style="padding-left: 83px; color: steelblue">Change Password</b></a>
+                                        <div class="slide"></div>
+                                    </li>
+                                </ul>
+                                
+                                <div class="tab-content">
+                                    <div id="personal" class="tab-pane active">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5 class="card-header-text" style="margin-left:405px"> &nbsp;&nbsp; <b>About Me</b></h5>
+
+                                            </div>
+                                            @if (Model != null && Model.LSTAccountList != null)
+                                            {
+                                                <div class="card-block">
+                                                    <div class="view-info">
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="general-info">
+                                                                    <div class="row">
+
+                                                                        <div class="row">
+                                                                            <div class="col-lg-12 col-xl-12">
+                                                                                <div class="table-responsive">
+                                                                                    <table class="table m-0">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th style="font-size:11px"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp; USER NAME</th>
+                                                                                                <td><p class="text-xs font-weight-bold mb-0">@Model.LSTAccountList[0].UserName<p /></td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <th style="font-size:11px"><i class="fa fa-user"></i>&nbsp;&nbsp; Full Name</th>
+                                                                                                <td><p class="text-xs font-weight-bold mb-0">@Model.LSTAccountList[0].FullName<p /></td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <th style="font-size:11px"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp; Email</th>
+                                                                                                <td><p class="text-xs font-weight-bold mb-0"><a href="#!">@Model.LSTAccountList[0].Email</a><p /></td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <th style="font-size:11px"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp; Mobile Number</th>
+                                                                                                <td><p class="text-xs font-weight-bold mb-0">@Model.LSTAccountList[0].Mobile<p /></td>
+                                                                                            </tr>
+
+                                                                                            <tr>
+                                                                                                <th style="font-size:11px"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp; Address</th>
+                                                                                                <td><p class="text-xs font-weight-bold mb-0">@Model.LSTAccountList[0].Address<p /></td>
+                                                                                            </tr>
+
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-lg-12 col-xl-6">
+                                                                                <div class="table-responsive">
+                                                                                    <table class="table">
+                                                                                        <tbody>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            }
+
+                                        </div>
+                                    </div>
+
+                                    <div id="binfo" class="tab-pane">
+                                        <div class="card-header">
+                                            <h5 class="card-header-text" style="margin-left:405px"> &nbsp;&nbsp; My Profile</h5>
+
+                                        </div>
+                                        <div class="row">
+                                            <input type="hidden" id="hdnintId" value="@Session["Id"]" />
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="form-control-label">User name</label>
+                                                    <input class="form-control" id="UserName" type="text" value="@Model.LSTAccountList[0].UserName">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="form-control-label">Email address</label>
+                                                    <input class="form-control" id="Email" type="email" value="@Model.LSTAccountList[0].Email" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="form-control-label">Full name</label>
+                                                    <input class="form-control" id="FullName" type="text" value="@Model.LSTAccountList[0].FullName">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="form-control-label">Mobile no</label>
+                                                    <input class="form-control" id="MobileNo" type="text" value="@Model.LSTAccountList[0].Mobile">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="form-control-label">Address</label>
+                                                    <input class="form-control" id="Address" type="text" value="@Model.LSTAccountList[0].Address">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <button type="button" style="margin-left: 488px" id="btnAdd" class="btn bg-gradient-info" onclick="UpdateProfile(@Session["Id"])">Update</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="contacts" class="tab-pane">
+                                        <div class="card-header">
+                                            <h5 class="card-header-text" style="margin-left:405px"> &nbsp;&nbsp; Change Password</h5>
+
+                                        </div>
+                                        <div class="row">
+                                            <input type="hidden" id="hdnintId" value="@Session["Id"]" />
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="form-control-label">Old Password</label>
+                                                    <input class="form-control" id="oldPassword" type="text" placeholder="Enter Old Password">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="form-control-label">Re-type Password</label>
+                                                    <input class="form-control" id="retypePassword" type="text" placeholder="Enter Re-type Password">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="form-control-label">New Password</label>
+                                                    <input class="form-control" id="newPassword" type="text" placeholder="Enter New Password">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <button type="button" style="margin-left: 218px" id="btnAdd" class="btn bg-gradient-info" onclick="ChangePassword();">Change</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*<p class="text-uppercase text-sm">User Information</p>*@
+
+                    @*<hr class="horizontal dark">
+                        <p class="text-uppercase text-sm">Contact Information</p>*@
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Datetime js/css-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="~/Scripts/Login.js"></script>
+<script>
+    $(document).ready(function () {
+        MyProfile();
+    });
+    $(function () {
+        $(".wt-tabs").tabs({
+            active: false
+        });
+    });
+
+</script>
